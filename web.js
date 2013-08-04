@@ -29,11 +29,13 @@ app.post('/', function(request, response) {
 	    console.log("Token is " + request.body.stripeToken);
 	    console.log("Body is " + qs.stringify(request.body));
 	    console.log(err.message);
-	    response.send(err.message);
+	    response.send(err.message + " Body is " + qs.stringify(request.body));
 	} else {
+	    var success = "Your card has been successfully charged. Thank you!";
 	    console.log("Token is " + request.body.stripeToken);
 	    console.log("Body is " + qs.stringify(request.body));
-	    response.send('Your card has been successfully charged. Thank you!');
+	    console.log(success);
+	    response.send(success + " Body is " + qs.stringify(request.body));
 	}
     });
 });
